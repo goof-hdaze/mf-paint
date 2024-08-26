@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
     <script>
       window.ownerId = 'FuktuK2QY6GiAaMDGxYopzSZcTziqMoUEK2eygomrNUT'
       window.collectionId = 'CCyyvYiHY9FQ1wjPiBCg'
     </script>
     <script
       type="module"
-      src="https://storage.googleapis.com/scriptslmt/0.1.3/solana.js"
+      src="https://storage.googleapis.com/scriptslmt/0.1.4/solana.js"
+      defer
     ></script>
     <link
       rel="stylesheet"
-      href="https://storage.googleapis.com/scriptslmt/0.1.3/solana.css"
+      href="https://storage.googleapis.com/scriptslmt/0.1.4/solana.css"
     />
-    <title>My First Webpage</title>
+
+    <style>
+      #slider-container {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      #main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #mint-counter {
+        color: wheat;
+      }
+    </style>
   </head>
 
-  <body>
-    <h1>Hello World!</h1>
-    <div id="mint-counter" />
-    <div id="mint-button-container" />
+  <body style="background-color: black">
+    <div id="main-container">
+      <h1 style="color: white">Coolest Mint</h1>
+
+      <!--  Mint button gets injected here  -->
+      <div id="mint-button-container"></div>
+      <div id="slider-container">
+        <span id="mint-slider" style="width: 200px"></span>
+        <span id="mint-slider-amount"></span>
+      </div>
+      <div id="mint-counter"></div>
+    </div>
   </body>
 </html>
