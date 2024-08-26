@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
+    <!-- <script>
       window.ownerId = 'FuktuK2QY6GiAaMDGxYopzSZcTziqMoUEK2eygomrNUT'
       window.collectionId = 'CCyyvYiHY9FQ1wjPiBCg'
     </script>
@@ -9,43 +9,84 @@
       type="module"
       src="https://storage.googleapis.com/scriptslmt/0.1.4/solana.js"
       defer
-    ></script>
+    ></script> -->
     <link
       rel="stylesheet"
       href="https://storage.googleapis.com/scriptslmt/0.1.4/solana.css"
     />
 
     <style>
-      #slider-container {
-        display: flex;
-        gap: 8px;
-        align-items: center;
+      body {
+        margin: 0;
+        padding: 40px;
+        background-color: rgb(17, 148, 122);
+      }
+      .mf-app {
+        box-shadow: 0 0 9px -2px #0000009e;
+        border-radius: 10px;
+        background-color: #eee;
+        height: calc(100vh - 80px);
+        padding: 0;
       }
 
-      #main-container {
+      .mfapp-draw {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
       }
-      #mint-counter {
-        color: wheat;
+      .sidebar {
+        min-width: 300px;
+        width: 300px;
+      }
+      .content {
+        position: relative;
+        background-color: #fff;
+        border-left: 5px solid #676767;
+        border-top: 5px solid #676767;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        flex-grow: 1;
+      }
+      .mif {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: 400px;
+        height: auto;
+      }
+      #canvas {
+        border: 1px solid #676767;
+        background: #fff;
+        max-width: calc(100% - 3px);
       }
     </style>
   </head>
 
   <body>
     <div id="main-container">
-      <h1>Coolest Mint</h1>
-      <canvas id="canvas"></canvas>
-      <script src="/mf-paint/index.js"></script>
-      <div class="sidebar">
-        <div id="mint-button-container"></div>
+      <div class="mf-app">
+        <div class="mfapp-header">
+          close open expand etc
+          <h1>Coolest Mint</h1>
+        </div>
+        <div class="mfapp-tools">file | Edit | Etc</div>
+        <div class="mfapp-draw">
+          <div class="sidebar">
+            mint-stuff
+            <!-- <div id="mint-button-container"></div>
         <div id="slider-container">
           <span id="mint-slider" style="width: 200px"></span>
           <span id="mint-slider-amount"></span>
         </div>
-        <div id="mint-counter"></div>
+        <div id="mint-counter"></div> -->
+          </div>
+          <div class="content" id="canvas-wrap">
+            <img src="img/base.png" alt="mifella" class="mif" />
+            <canvas id="canvas"></canvas>
+            <script src="index.js"></script>
+          </div>
+        </div>
+        <div class="mfapp-colors">colors</div>
+        <div class="mfapp-footer">footer</div>
       </div>
     </div>
   </body>
