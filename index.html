@@ -27,7 +27,18 @@
       }
       #slider-container {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .mint-counter {
+        color: #fff !important;
+      }
+      .MuiSlider-track,
+      .MuiSlider-rail {
+        color: #fff !important;
+      }
+      .MuiSlider-thumb {
+        color: black !important;
       }
       body {
         margin: 0;
@@ -165,7 +176,10 @@
       <div class="mint-wrap">
         <div id="mint-counter"></div>
         <div id="slider-container">
-          <span id="mint-slider" style="width: 200px"></span>
+          <span
+            id="mint-slider"
+            style="width: 200px; margin-right: 20px"
+          ></span>
           <span id="mint-slider-amount"></span>
         </div>
 
