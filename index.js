@@ -9,6 +9,25 @@ window.addEventListener('load', () => {
   window.addEventListener('resize', resize)
 })
 
+function loadRandomImg() {
+  let bimages = [
+    'base.png',
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '5.png',
+    '6.png',
+    '7.png',
+    '8.png',
+  ]
+  let rand = Math.floor(Math.random() * 9)
+  newImage = 'url(img/' + bimages[rand] + ')'
+  document.getElementById('canvas').style.backgroundImage = newImage
+}
+
+loadRandomImg()
+
 const canvas = document.querySelector('#canvas')
 
 // Context for the canvas for 2 dimensional operations
