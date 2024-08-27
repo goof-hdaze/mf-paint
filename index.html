@@ -31,7 +31,7 @@
       }
       body {
         margin: 0;
-        padding: 50px 100px;
+        padding: 40px 100px;
         background-color: rgb(17, 148, 122);
         font-family: Arial, Helvetica, sans-serif;
       }
@@ -66,6 +66,9 @@
       .mfapp-menu .menu-item {
         font-size: 18px;
         padding: 10px 10px;
+      }
+      .help {
+        cursor: pointer;
       }
       .mfapp-menu .menu-item span {
         text-decoration: underline;
@@ -180,7 +183,7 @@
           <div class="menu-item">Image</div>
           <div class="menu-item">Options</div>
           <div
-            class="menu-item"
+            class="menu-item help"
             onclick="(function(){ alert('It\'s a hard world out there.'); })();"
           >
             Help
