@@ -17,7 +17,7 @@ const ctx = canvas.getContext('2d')
 // Resizes the canvas to the available size of the window.
 function resize() {
   ctx.canvas.width = document.getElementById('canvas-wrap').offsetWidth
-  ctx.canvas.height = window.innerHeight - 300
+  ctx.canvas.height = window.innerHeight - 380
 }
 
 // Stores the initial position of the cursor
@@ -26,6 +26,7 @@ let coord = { x: 0, y: 0 }
 // This is the flag that we are going to use to
 // trigger drawing
 let paint = false
+let paintcolor = 'black'
 
 // Updates the coordianates of the cursor when
 // an event e is triggered to the coordinates where
@@ -34,6 +35,13 @@ function getPosition(event) {
   coord.x = event.clientX - canvas.offsetLeft
   coord.y = event.clientY - canvas.offsetTop
 }
+function getColor(data) {
+  paintcolor = data.getAttribute('data-color')
+}
+
+// document.querySelector('#btn').addEventListener('click', (event) => {
+//   console.log(event.target.dataset.a)
+// })
 
 // The following functions toggle the flag to start
 // and stop drawing
@@ -55,7 +63,7 @@ function sketch(event) {
   // to a round shape.
   ctx.lineCap = 'round'
 
-  ctx.strokeStyle = 'green'
+  ctx.strokeStyle = paintcolor
 
   // The cursor to start drawing
   // moves to this coordinate
