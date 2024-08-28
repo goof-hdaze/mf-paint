@@ -47,7 +47,7 @@ let coord = { x: 0, y: 0 }
 let paint = false
 let paintcolor = 'black'
 let paintsize = 6
-let bgpattern = ''
+let bgpattern = 'white.png'
 let bgImage = 'url(img/' + bgpattern + ')'
 
 // Updates the coordianates of the cursor when
