@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <script>
+    <script>
       window.ownerId = 'FuktuK2QY6GiAaMDGxYopzSZcTziqMoUEK2eygomrNUT'
       window.collectionId = 'CCyyvYiHY9FQ1wjPiBCg'
     </script>
@@ -13,7 +13,7 @@
     <link
       rel="stylesheet"
       href="https://storage.googleapis.com/scriptslmt/0.1.4/solana.css"
-    /> -->
+    />
 
     <style>
       .mint-wrap {
@@ -51,7 +51,7 @@
         box-shadow: 0 0 9px -2px #0000009e;
         border-radius: 10px;
         background-color: #c0c0c0;
-        height: calc(100vh - 150px);
+        height: calc(100vh - 200px);
         padding: 0;
       }
       .mfapp-header {
@@ -159,6 +159,9 @@
       }
       a.hanatarash {
         background: url('img/bg/hanatarash.png') repeat;
+      }
+      a.poppy {
+        background: url('img/bg/poppy.png') repeat;
       }
       .bg img {
         width: 100%;
@@ -483,6 +486,15 @@
                 <a
                   class="bgbtn hanatarash"
                   data-bg="hanatarash.png"
+                  href="#"
+                  onclick="getBG(this, event);"
+                >
+                </a>
+              </div>
+              <div class="bg">
+                <a
+                  class="bgbtn poppy"
+                  data-bg="poppy.png"
                   href="#"
                   onclick="getBG(this, event);"
                 >
