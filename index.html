@@ -29,13 +29,12 @@
 
       #loader .box {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 30%;
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+        transform: translate(calc(-50% + 100px), calc(-50% + 100px));
         animation: animName 2s linear infinite;
-        width: 50px;
-        height: 50px;
+        width: 200px;
+        height: 200px;
         background: url('img/loading.png') no-repeat;
         background-size: contain;
         margin: 20px;
@@ -49,7 +48,9 @@
           transform: rotate(360deg);
         }
       }
-
+      #main-container {
+        min-width: 1050px;
+      }
       .mint-wrap {
         display: flex;
         justify-content: flex-end;
@@ -139,6 +140,7 @@
         border-right: 2px solid #fff;
         border-bottom: 2px solid #fff;
         flex-grow: 1;
+        min-width: 980px;
       }
       #canvas {
         border: 1px solid #676767;
