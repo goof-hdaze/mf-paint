@@ -9,6 +9,15 @@ window.addEventListener('load', () => {
   window.addEventListener('resize', resize)
 })
 
+var tmpCanvas = document.createElement('canvas'),
+  tmpCtx = tmpCanvas.getContext('2d'),
+  img = document.createElement('img')
+
+img.onload = function () {
+  tmpCtx.drawImage(thumbImg, 0, 0, 200, 200)
+}
+img.src = '/some/image/source.png'
+
 function loadRandomImg() {
   let bimages = [
     'base.png',
@@ -47,8 +56,8 @@ let coord = { x: 0, y: 0 }
 let paint = false
 let paintcolor = 'black'
 let paintsize = 6
-let bgpattern = 'white.png'
-let bgImage = 'url(img/' + bgpattern + ')'
+let bgpattern = ''
+let bgImage = ''
 
 // Updates the coordianates of the cursor when
 // an event e is triggered to the coordinates where
