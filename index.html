@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
+    <!-- <script>
       window.ownerId = 'FuktuK2QY6GiAaMDGxYopzSZcTziqMoUEK2eygomrNUT'
       window.collectionId = 'CCyyvYiHY9FQ1wjPiBCg'
     </script>
@@ -13,7 +13,7 @@
     <link
       rel="stylesheet"
       href="https://storage.googleapis.com/scriptslmt/0.1.4/solana.css"
-    />
+    /> -->
 
     <style>
       .mint-wrap {
@@ -90,13 +90,15 @@
         justify-content: flex-start;
       }
       .sidebar {
-        width: 110px;
+        width: 70px;
         border-right: 2px solid #fff;
         border-top: 2px solid #808080;
         border-bottom: 2px solid #808080;
       }
-      .content {
+      #canvas-wrap {
         background-color: #fff;
+        background-image: url('img/white.png');
+        background-repeat: repeat;
         border-left: 5px solid #676767;
         border-top: 5px solid #676767;
         border-right: 2px solid #fff;
@@ -107,19 +109,21 @@
         border: 1px solid #676767;
         background: #fff;
         max-width: calc(100% - 3px);
-        background: url('img/base.png') no-repeat;
+        background: url('img/mif/base.png') no-repeat;
         background-position: center center;
         background-size: contain;
       }
-      .tools {
+      .tools,
+      .mfapp-colors,
+      .mfapp-bgs {
         display: flex;
         flex-wrap: wrap;
-        max-width: 82px;
+        max-width: 60px;
         margin: 0 auto;
       }
-      .tool {
-        width: 35px;
-        height: 35px;
+      .tool a {
+        width: 24px;
+        height: 24px;
         padding: 3px;
         background: url('img/tool-btn.png') no-repeat;
         background-size: cover;
@@ -127,19 +131,45 @@
         justify-content: center;
         align-items: center;
       }
-      .tool.active {
+
+      .tool a.active {
         background: url('img/tool-btn-active.png') no-repeat;
       }
+
       .tool img {
         width: 100%;
         height: auto;
         display: block;
       }
-      .mfapp-colors {
-        height: 50px;
-        border-top: 2px solid #fff;
-        border-bottom: 2px solid #808080;
+
+      .bg a {
+        width: 24px;
+        height: 24px;
+        padding: 3px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+      a.wall {
+        background: url('img/bg/wall.png') repeat;
+      }
+      a.white {
+        background: url('img/bg/white.png') repeat;
+      }
+      a.hanatarash {
+        background: url('img/bg/hanatarash.png') repeat;
+      }
+      .bg img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .bg img {
+        background-repeat: repeat;
+      }
+
       .mfapp-colors .colors {
         display: flex;
         flex-wrap: wrap;
@@ -160,7 +190,13 @@
         height: 23px;
         display: block;
       }
-
+      .bg a.active,
+      .mfapp-colors .colors .color a.active {
+        box-shadow: inset 0 0 2px 2px #000;
+      }
+      .mfapp-colors .colors .color a.black.active {
+        box-shadow: inset 0 0 2px 2px #fff;
+      }
       .mfapp-footer {
         border-top: 2px solid #fff;
       }
@@ -206,23 +242,252 @@
         </div>
         <div class="mfapp-draw">
           <div class="sidebar">
+            <div class="mfapp-colors">
+              <div class="colors">
+                <div class="color">
+                  <a
+                    class="colorbtn red"
+                    data-color="red"
+                    style="background-color: red"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn green"
+                    data-color="green"
+                    style="background-color: green"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn cadetblue"
+                    data-color="cadetblue"
+                    style="background-color: cadetblue"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn beige"
+                    data-color="beige"
+                    style="background-color: beige"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn firebrick"
+                    data-color="firebrick"
+                    style="background-color: firebrick"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn deeppink"
+                    data-color="deeppink"
+                    style="background-color: deeppink"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn aquamarine"
+                    data-color="aquamarine"
+                    style="background-color: aquamarine"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn chartreuse"
+                    data-color="chartreuse"
+                    style="background-color: chartreuse"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn white"
+                    data-color="white"
+                    style="background-color: white"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn black active"
+                    data-color="black"
+                    style="background-color: black"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn yellow"
+                    data-color="yellow"
+                    style="background-color: yellow"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn blue"
+                    data-color="blue"
+                    style="background-color: blue"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn orange"
+                    data-color="orange"
+                    style="background-color: orange"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn purple"
+                    data-color="purple"
+                    style="background-color: purple"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn plum"
+                    data-color="plum"
+                    style="background-color: plum"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn whitesmoke"
+                    data-color="whitesmoke"
+                    style="background-color: whitesmoke"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn teal"
+                    data-color="teal"
+                    style="background-color: teal"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn brown"
+                    data-color="brown"
+                    style="background-color: brown"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn rebeccapurple"
+                    data-color="rebeccapurple"
+                    style="background-color: rebeccapurple"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+                <div class="color">
+                  <a
+                    class="colorbtn thistle"
+                    data-color="thistle"
+                    style="background-color: thistle"
+                    href="#"
+                    onclick="getColor(this);"
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <hr class="horz" />
             <div class="tools">
-              <div class="tool"><img src="img/star.png" alt="" /></div>
-              <div class="tool"><img src="img/cust-fill.png" alt="" /></div>
-              <div class="tool"><img src="img/brush.png" alt="" /></div>
-              <div class="tool"><img src="img/cust-fill1.png" alt="" /></div>
-              <div class="tool active"><img src="img/draw.png" alt="" /></div>
-              <div class="tool"><img src="img/drop.png" alt="" /></div>
-              <div class="tool"><img src="img/erase.png" alt="" /></div>
-              <div class="tool"><img src="img/line.png" alt="" /></div>
-              <div class="tool"><img src="img/line1.png" alt="" /></div>
-              <div class="tool"><img src="img/mag.png" alt="" /></div>
-              <div class="tool"><img src="img/oval-fill.png" alt="" /></div>
-              <div class="tool"><img src="img/paint.png" alt="" /></div>
-              <div class="tool"><img src="img/rec-fill.png" alt="" /></div>
-              <div class="tool"><img src="img/select-rec.png" alt="" /></div>
-              <div class="tool"><img src="img/star.png" alt="" /></div>
-              <div class="tool"><img src="img/type.png" alt="" /></div>
+              <div class="tool">
+                <a
+                  class="drawbtn"
+                  data-size="2"
+                  href="#"
+                  onclick="getSize(this);"
+                >
+                  <img src="img/size2.png" alt="" />
+                </a>
+              </div>
+              <div class="tool">
+                <a
+                  class="drawbtn active"
+                  data-size="6"
+                  href="#"
+                  onclick="getSize(this);"
+                >
+                  <img src="img/size6.png" alt="" />
+                </a>
+              </div>
+              <div class="tool">
+                <a
+                  class="drawbtn"
+                  data-size="12"
+                  href="#"
+                  onclick="getSize(this);"
+                >
+                  <img src="img/size12.png" alt="" />
+                </a>
+              </div>
+            </div>
+            <hr class="horz" />
+            <div class="mfapp-bgs">
+              <div class="bg">
+                <a
+                  class="bgbtn wall"
+                  data-bg="wall.png"
+                  href="#"
+                  onclick="getBG(this, event);"
+                >
+                </a>
+              </div>
+              <div class="bg">
+                <a
+                  class="bgbtn white active"
+                  data-bg="white.png"
+                  href="#"
+                  onclick="getBG(this, event);"
+                >
+                </a>
+              </div>
+              <div class="bg">
+                <a
+                  class="bgbtn hanatarash"
+                  data-bg="hanatarash.png"
+                  href="#"
+                  onclick="getBG(this, event);"
+                >
+                </a>
+              </div>
             </div>
           </div>
           <div class="content" id="canvas-wrap">
@@ -230,181 +495,7 @@
             <script src="index.js"></script>
           </div>
         </div>
-        <div class="mfapp-colors">
-          <div class="colors">
-            <div class="color">
-              <a
-                class="red"
-                data-color="red"
-                style="background-color: red"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="green"
-                data-color="green"
-                style="background-color: green"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="cadetblue"
-                data-color="cadetblue"
-                style="background-color: cadetblue"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="beige"
-                data-color="beige"
-                style="background-color: beige"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="firebrick"
-                data-color="firebrick"
-                style="background-color: firebrick"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="deeppink"
-                data-color="deeppink"
-                style="background-color: deeppink"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="aquamarine"
-                data-color="aquamarine"
-                style="background-color: aquamarine"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="chartreuse"
-                data-color="chartreuse"
-                style="background-color: chartreuse"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="black"
-                data-color="black"
-                style="background-color: black"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="yellow"
-                data-color="yellow"
-                style="background-color: yellow"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="blue"
-                data-color="blue"
-                style="background-color: blue"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="orange"
-                data-color="orange"
-                style="background-color: orange"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="purple"
-                data-color="purple"
-                style="background-color: purple"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="plum"
-                data-color="plum"
-                style="background-color: plum"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="whitesmoke"
-                data-color="whitesmoke"
-                style="background-color: whitesmoke"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="teal"
-                data-color="teal"
-                style="background-color: teal"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="brown"
-                data-color="brown"
-                style="background-color: brown"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="rebeccapurple"
-                data-color="rebeccapurple"
-                style="background-color: rebeccapurple"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-            <div class="color">
-              <a
-                class="thistle"
-                data-color="thistle"
-                style="background-color: thistle"
-                href="#"
-                onclick="getColor(this);"
-              ></a>
-            </div>
-          </div>
-        </div>
+
         <div class="mfapp-footer">
           <span>For Help, click Help Topics on the Help Menu.</span>
         </div>

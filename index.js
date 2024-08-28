@@ -22,7 +22,7 @@ function loadRandomImg() {
     '8.png',
   ]
   let rand = Math.floor(Math.random() * 9)
-  newImage = 'url(img/' + bimages[rand] + ')'
+  newImage = 'url(img/mif/' + bimages[rand] + ')'
   document.getElementById('canvas').style.backgroundImage = newImage
 }
 
@@ -46,6 +46,9 @@ let coord = { x: 0, y: 0 }
 // trigger drawing
 let paint = false
 let paintcolor = 'black'
+let paintsize = 6
+let bgpattern = ''
+let bgImage = 'url(img/' + bgpattern + ')'
 
 // Updates the coordianates of the cursor when
 // an event e is triggered to the coordinates where
@@ -56,11 +59,32 @@ function getPosition(event) {
 }
 function getColor(data) {
   paintcolor = data.getAttribute('data-color')
+  var elems = document.querySelector('.colorbtn.active')
+  if (elems !== null) {
+    elems.classList.remove('active')
+  }
+  data.className += ' active'
 }
 
-// document.querySelector('#btn').addEventListener('click', (event) => {
-//   console.log(event.target.dataset.a)
-// })
+function getSize(data) {
+  paintsize = data.getAttribute('data-size')
+  var elems = document.querySelector('.drawbtn.active')
+  if (elems !== null) {
+    elems.classList.remove('active')
+  }
+  data.className += ' active'
+}
+
+function getBG(data) {
+  bgpattern = data.getAttribute('data-bg')
+  bgImage = 'url(img/bg/' + bgpattern + ')'
+  document.getElementById('canvas-wrap').style.backgroundImage = bgImage
+  var elems = document.querySelector('.bgbtn.active')
+  if (elems !== null) {
+    elems.classList.remove('active')
+  }
+  data.className += ' active'
+}
 
 // The following functions toggle the flag to start
 // and stop drawing
@@ -76,7 +100,7 @@ function sketch(event) {
   if (!paint) return
   ctx.beginPath()
 
-  ctx.lineWidth = 5
+  ctx.lineWidth = paintsize
 
   // Sets the end of the lines drawn
   // to a round shape.
