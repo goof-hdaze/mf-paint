@@ -100,6 +100,17 @@ body {
 .help {
   cursor: pointer;
 }
+.reset {
+  color: #000;
+  margin-left: auto;
+  font-weight: bold;
+}
+.reset:hover {
+  text-decoration: none;
+}
+.reset:hover span {
+  text-decoration: under;
+}
 .mfapp-menu .menu-item span {
   text-decoration: underline;
 }
